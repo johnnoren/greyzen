@@ -1,14 +1,40 @@
 local lush = require('lush')
 local hsl = lush.hsl
 local greyzen = require('lush_theme.greyzen')
-local base_colors = require('lush_theme.colors')
 
 local colors = {
-    green        = tostring(base_colors.green),
-    red        = tostring(base_colors.red),
-    yellow       = tostring(base_colors.yellow),
-    medium_blue  = tostring(greyzen.LineNr.fg),
-    dark_blue  = tostring(greyzen.LineNr.fg.darken(12)),
+    mid_red = hsl(0, 70, 70),
+    warm_red = hsl(15, 70, 70),
+    orange = hsl(30, 70, 70),
+    warm_yellow = hsl(45, 70, 70),
+    mid_yellow = hsl(60, 70, 70),
+    cool_yellow = hsl(75, 70, 70),
+    yellow_green = hsl(90, 70, 70),
+    warm_green = hsl(105, 70, 70),
+    mid_green = hsl(120, 70, 70),
+    cool_green = hsl(135, 70, 70),
+    green_cyan = hsl(170, 70, 70),
+    warm_cyan = hsl(165, 70, 70),
+    mid_cyan = hsl(180, 70, 70),
+    cool_cyan = hsl(195, 70, 70),
+    blue_cyan = hsl(210, 70, 70),
+    cool_blue = hsl(225, 70, 70),
+    mid_blue = hsl(240, 70, 70),
+    warm_blue = hsl(255, 70, 70),
+    violet = hsl(270, 70, 70),
+    cool_magenta = hsl(285, 70, 70),
+    mid_magenta = hsl(300, 70, 70),
+    warm_magenta = hsl(315, 70, 70),
+    red_magenta = hsl(330, 70, 70),
+    cool_red = hsl(345, 70, 70),
+}
+
+local chosen_colors = {
+    green        = tostring(colors.cool_green),
+    red        = tostring(colors.cool_red),
+    yellow       = tostring(colors.mid_yellow),
+    medium_blue  = tostring(greyzen.bg.lighten(15)),
+    dark_blue  = tostring(greyzen.bg.lighten(5)),
     bg = tostring(greyzen.Normal.bg),
     fg = tostring(greyzen.Normal.fg),
     gray         = '#a89984',
@@ -16,33 +42,33 @@ local colors = {
 }
 return {
     normal = {
-        a = { bg = colors.medium_blue, fg = colors.bg },
-        b = { bg = colors.dark_blue, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.medium_blue }
+        a = { bg = chosen_colors.medium_blue, fg = chosen_colors.bg },
+        b = { bg = chosen_colors.dark_blue, fg = chosen_colors.fg },
+        c = { bg = chosen_colors.bg, fg = chosen_colors.medium_blue }
     },
     insert = {
-        a = { bg = colors.green, fg = colors.bg },
-        b = { bg = colors.dark_blue, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.medium_blue }
+        a = { bg = chosen_colors.green, fg = chosen_colors.bg },
+        b = { bg = chosen_colors.dark_blue, fg = chosen_colors.fg },
+        c = { bg = chosen_colors.bg, fg = chosen_colors.medium_blue }
     },
     visual = {
-        a = { bg = colors.yellow, fg = colors.bg },
-        b = { bg = colors.dark_blue, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.medium_blue }
+        a = { bg = chosen_colors.yellow, fg = chosen_colors.bg },
+        b = { bg = chosen_colors.dark_blue, fg = chosen_colors.fg },
+        c = { bg = chosen_colors.bg, fg = chosen_colors.medium_blue }
     },
     replace = {
-        a = { bg = colors.red, fg = colors.bg },
-        b = { bg = colors.dark_blue, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.medium_blue }
+        a = { bg = chosen_colors.red, fg = chosen_colors.bg },
+        b = { bg = chosen_colors.dark_blue, fg = chosen_colors.fg },
+        c = { bg = chosen_colors.bg, fg = chosen_colors.medium_blue }
     },
     command = {
-        a = { bg = colors.green, fg = colors.bg },
-        b = { bg = colors.dark_blue, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.medium_blue }
+        a = { bg = chosen_colors.green, fg = chosen_colors.bg },
+        b = { bg = chosen_colors.dark_blue, fg = chosen_colors.fg },
+        c = { bg = chosen_colors.bg, fg = chosen_colors.medium_blue }
     },
     inactive = {
-        a = { bg = colors.darkgray, fg = colors.gray },
-        b = { bg = colors.dark_blue, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.medium_blue }
+        a = { bg = chosen_colors.darkgray, fg = chosen_colors.gray },
+        b = { bg = chosen_colors.dark_blue, fg = chosen_colors.fg },
+        c = { bg = chosen_colors.bg, fg = chosen_colors.medium_blue }
     }
 }

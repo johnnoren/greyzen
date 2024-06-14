@@ -9,16 +9,41 @@
 local lush = require('lush')
 local hsl = lush.hsl
 
--- Colors
-local colors = require('lush_theme.colors')
+local colors = {
+    mid_red = hsl(0, 70, 70),
+    warm_red = hsl(15, 70, 70),
+    orange = hsl(30, 70, 70),
+    warm_yellow = hsl(45, 70, 70),
+    mid_yellow = hsl(60, 70, 70),
+    cool_yellow = hsl(75, 70, 70),
+    yellow_green = hsl(90, 70, 70),
+    warm_green = hsl(105, 70, 70),
+    mid_green = hsl(120, 70, 70),
+    cool_green = hsl(135, 70, 70),
+    green_cyan = hsl(170, 70, 70),
+    warm_cyan = hsl(165, 70, 70),
+    mid_cyan = hsl(180, 70, 70),
+    cool_cyan = hsl(195, 70, 70),
+    blue_cyan = hsl(210, 70, 70),
+    cool_blue = hsl(225, 70, 70),
+    mid_blue = hsl(240, 70, 70),
+    warm_blue = hsl(255, 70, 70),
+    violet = hsl(270, 70, 70),
+    cool_magenta = hsl(285, 70, 70),
+    mid_magenta = hsl(300, 70, 70),
+    warm_magenta = hsl(315, 70, 70),
+    red_magenta = hsl(330, 70, 70),
+    cool_red = hsl(345, 70, 70),
+}
 
--- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
--- support an annotation like the following. Consult your server documentation.
----@diagnostic disable: undefined-global
+local base = hsl(225,34,15)
+local c1 = hsl(225,7,80)
+local c2 = hsl(225,11,49)
+local c3 = hsl(33,19,46)
 local theme = lush(function(injected_functions)
     local sym = injected_functions.sym
     return {
-        Normal { bg = hsl(240,20,20), fg = hsl(240,20,75) },
+        Normal { bg = base, fg = c1 },
         -- The following are the Neovim (as of 0.8.0-dev+100-g371dfb174) highlight
         -- groups, mostly used for styling UI elements.
         -- Comment them out and add your own properties to override the defaults.
@@ -38,21 +63,21 @@ local theme = lush(function(injected_functions)
         -- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
         CursorLine { bg = ColorColumn.bg }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
         Directory      { fg = Normal.fg }, -- Directory names (and other special names in listings)
-        -- DiffAdd        { }, -- Diff mode: Added line |diff.txt|
-        -- DiffChange     { }, -- Diff mode: Changed line |diff.txt|
-        -- DiffDelete     { }, -- Diff mode: Deleted line |diff.txt|
+        DiffAdd        { bg = colors.mid_green, fg = Normal.fg.darken(50)}, -- Diff mode: Added line |diff.txt|
+        DiffChange     { bg = colors.mid_yellow, fg = Normal.fg.darken(50) }, -- Diff mode: Changed line |diff.txt|
+        DiffDelete     { bg = colors.mid_red, fg = Normal.fg.lighten(70) }, -- Diff mode: Deleted line |diff.txt|
         DiffText       { bg = colors.red, fg = Normal.fg.lighten(50) }, -- Diff mode: Changed text within a changed line |diff.txt|
         EndOfBuffer    { fg = Normal.bg }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
         -- TermCursor     { }, -- Cursor in a focused terminal
         -- TermCursorNC   { }, -- Cursor in an unfocused terminal
-        ErrorMsg       { bg = colors.red, fg = Normal.fg.lighten(50) }, -- Error messages on the command line
+        ErrorMsg       { bg = colors.mid_red, fg = Normal.fg.lighten(70) }, -- Error messages on the command line
         -- VertSplit      { }, -- Column separating vertically split windows
         -- Folded         { }, -- Line used for closed folds
         -- FoldColumn     { }, -- 'foldcolumn'
         SignColumn {},  -- Column where |signs| are displayed
         -- IncSearch      { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
         Substitute     { bg = Normal.bg.lighten(40), fg = Normal.fg }, -- |:substitute| replacement text highlighting
-        LineNr { fg = Normal.bg.lighten(25) },     -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+        LineNr { fg = Normal.fg.darken(50) },     -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
         -- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
         -- LineNrBelow    { }, -- Line number for when the 'relativenumber' option is set, below the cursor line
         CursorLineNr { LineNr }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
@@ -108,9 +133,9 @@ local theme = lush(function(injected_functions)
         --
         -- Uncomment and edit if you want more specific syntax highlighting.
 
-        Comment { fg = LineNr.fg.lighten(10) },    -- Any comment
+        Comment { fg = c2 },    -- Any comment
 
-        Constant { fg = colors.red },                     -- (*) Any constant
+        Constant { fg = colors.cool_red },                     -- (*) Any constant
         -- String         { }, --   A string constant: "this is a string"
         -- Character      { }, --   A character constant: 'c', '\n'
         -- Number         { }, --   A number constant: 234, 0xff
@@ -120,7 +145,7 @@ local theme = lush(function(injected_functions)
         Identifier {},  -- (*) Any variable name
         -- Function       { }, --   Function name (also: methods for classes)
 
-        Statement { fg = Normal.fg },  -- (*) Any statement
+        Statement { fg = colors.cool_blue },  -- (*) Any statement
         -- Conditional    { }, --   if, then, else, endif, switch, etc.
         -- Repeat         { }, --   for, do, while, etc.
         -- Label          { }, --   case, default, etc.
@@ -128,13 +153,13 @@ local theme = lush(function(injected_functions)
         -- Keyword        { }, --   any other keyword
         -- Exception      { }, --   try, catch, throw
 
-        PreProc { fg = colors.blue_magenta },    -- (*) Generic Preprocessor
+        PreProc { fg = colors.cool_magenta },    -- (*) Generic Preprocessor
         -- Include        { }, --   Preprocessor #include
         -- Define         { }, --   Preprocessor #define
         -- Macro          { }, --   Same as Define
         -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-        Type { fg = colors.green },       -- (*) int, long, char, etc.
+        Type { fg = colors.cool_green },       -- (*) int, long, char, etc.
         -- StorageClass   { }, --   static, register, volatile, etc.
         -- Structure      { }, --   struct, union, enum, etc.
         -- Typedef        { }, --   A typedef
@@ -149,7 +174,7 @@ local theme = lush(function(injected_functions)
         Underlined { gui = "underline" },                                       -- Text that stands out, HTML links
         -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
         Error { ErrorMsg },                                  -- Any erroneous construct
-        Todo { bg = colors.yellow, fg = Normal.fg.darken(50) },       -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+        Todo { bg = colors.mid_yellow, fg = Normal.fg.darken(50) },       -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
         -- These groups are for the native LSP client and diagnostic system. Some
         -- other LSP clients may use these groups, or use their own. Consult your
