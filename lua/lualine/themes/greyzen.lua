@@ -33,8 +33,7 @@ local chosen_colors = {
     green        = tostring(colors.cool_green),
     red        = tostring(colors.cool_red),
     yellow       = tostring(colors.mid_yellow),
-    medium_blue  = tostring(greyzen.bg.lighten(15)),
-    dark_blue  = tostring(greyzen.bg.lighten(5)),
+    dark_blue  = tostring(greyzen.Normal.bg),
     bg = tostring(greyzen.Normal.bg),
     fg = tostring(greyzen.Normal.fg),
     gray         = '#a89984',
@@ -42,33 +41,33 @@ local chosen_colors = {
 }
 return {
     normal = {
-        a = { bg = chosen_colors.medium_blue, fg = chosen_colors.bg },
+        a = { bg = chosen_colors.fg, fg = chosen_colors.bg },
         b = { bg = chosen_colors.dark_blue, fg = chosen_colors.fg },
-        c = { bg = chosen_colors.bg, fg = chosen_colors.medium_blue }
+        c = { bg = chosen_colors.bg, fg = chosen_colors.fg }
     },
     insert = {
         a = { bg = chosen_colors.green, fg = chosen_colors.bg },
         b = { bg = chosen_colors.dark_blue, fg = chosen_colors.fg },
-        c = { bg = chosen_colors.bg, fg = chosen_colors.medium_blue }
+        c = { bg = chosen_colors.bg, fg = chosen_colors.fg }
     },
     visual = {
         a = { bg = chosen_colors.yellow, fg = chosen_colors.bg },
         b = { bg = chosen_colors.dark_blue, fg = chosen_colors.fg },
-        c = { bg = chosen_colors.bg, fg = chosen_colors.medium_blue }
+        c = { bg = chosen_colors.bg, fg = chosen_colors.fg }
     },
     replace = {
         a = { bg = chosen_colors.red, fg = chosen_colors.bg },
         b = { bg = chosen_colors.dark_blue, fg = chosen_colors.fg },
-        c = { bg = chosen_colors.bg, fg = chosen_colors.medium_blue }
+        c = { bg = chosen_colors.bg, fg = chosen_colors.fg }
     },
     command = {
         a = { bg = chosen_colors.green, fg = chosen_colors.bg },
         b = { bg = chosen_colors.dark_blue, fg = chosen_colors.fg },
-        c = { bg = chosen_colors.bg, fg = chosen_colors.medium_blue }
+        c = { bg = chosen_colors.bg, fg = chosen_colors.fg }
     },
     inactive = {
         a = { bg = chosen_colors.darkgray, fg = chosen_colors.gray },
         b = { bg = chosen_colors.dark_blue, fg = chosen_colors.fg },
-        c = { bg = chosen_colors.bg, fg = chosen_colors.medium_blue }
+        c = { bg = chosen_colors.bg, fg = chosen_colors.fg }
     }
 }
