@@ -39,7 +39,7 @@ local colors = {
 local base = hsl(225,34,15)
 local c1 = hsl(225,7,80)
 local c2 = hsl(225,11,49)
-local c3 = hsl(33,19,46)
+
 local theme = lush(function(injected_functions)
     local sym = injected_functions.sym
     return {
