@@ -78,8 +78,8 @@ local theme = lush(function(injected_functions)
         -- IncSearch      { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
         Substitute     { bg = Normal.bg.lighten(40), fg = Normal.fg }, -- |:substitute| replacement text highlighting
         LineNr { fg = Normal.fg.darken(50) },     -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-        -- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
-        -- LineNrBelow    { }, -- Line number for when the 'relativenumber' option is set, below the cursor line
+        LineNrAbove    { LineNr }, -- Line number for when the 'relativenumber' option is set, above the cursor line
+        LineNrBelow    { LineNr }, -- Line number for when the 'relativenumber' option is set, below the cursor line
         CursorLineNr { LineNr }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
         -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
         -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
