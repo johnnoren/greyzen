@@ -23,7 +23,7 @@ lush(theme)
 require('lualine').setup { options = { theme = 'greyzen' } }
 
 -- Toggle line number color between normal and bg (for making them invisible)
-local toggled = true
+local toggled = false
 vim.api.nvim_create_user_command('ToggleLineNrColor', function()
         local spec = {}
         if (toggled) then
@@ -34,13 +34,14 @@ vim.api.nvim_create_user_command('ToggleLineNrColor', function()
                     LineNrBelow { fg = theme.Normal.bg },
                 }
             end)
-            toggled = false
+            toggled = true
         else
             spec = theme
-            toggled = true
+            toggled = false
         end
         lush(spec)
         require('lualine').setup { options = { theme = 'greyzen' } }
     end,
     { nargs = 0, desc = 'Toggle line number color' }
 )
+vim.cmd('ToggleLineNrColor')
