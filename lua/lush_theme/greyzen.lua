@@ -164,7 +164,7 @@ local theme = lush(function(injected_functions)
         -- Structure      { }, --   struct, union, enum, etc.
         -- Typedef        { }, --   A typedef
 
-        Special {},     -- (*) Any special symbol
+        Special { },     -- (*) Any special symbol
         -- SpecialChar    { }, --   Special character in a constant
         -- Tag            { }, --   You can use CTRL-] on this
         -- Delimiter      { }, --   Character that needs attention
@@ -279,12 +279,16 @@ local theme = lush(function(injected_functions)
         -- sym"@preproc"           { }, -- PreProc
         -- sym"@debug"             { }, -- Debug
         -- sym"@tag"               { }, -- Tag
-		sym"@markup.heading.1.markdown" { fg = Normal.fg.darken(10), bold = true },
-		sym"@markup.heading.2.markdown" { fg = Normal.fg.lighten(10), bold = true },
-		sym"@markup.heading.3.markdown" { fg = Normal.fg.lighten(10), bold = true },
-		sym"@markup.heading.4.markdown" { fg = Normal.fg.lighten(10), bold = true },
-		sym"@markup.heading.5.markdown" { fg = Normal.fg.lighten(10), bold = true },
-		sym"@markup.list.markdown" { fg = Normal.fg.lighten(10), bold = true },
+		sym"@markup.heading.1.markdown" { fg = colors.cool_blue, bold = true },
+		sym"@markup.heading.2.markdown" { fg = Normal.fg.darken(30), bold = true },
+		sym"@markup.heading.3.markdown" { fg = Normal.fg.darken(30), bold = true },
+		sym"@markup.heading.4.markdown" { fg = Normal.fg.darken(30), bold = true },
+		sym"@markup.heading.5.markdown" { fg = Normal.fg.darken(30), bold = true },
+		sym"@markup.list.markdown" { fg = Normal.fg.darken(30), bold = true },
+        sym"@markup.bold.markdown" { fg = Normal.fg, bold = true },
+        sym"@markup.italic.markdown" { fg = Normal.fg, italic = true },
+        sym"@markup.checkbox.markdown" { fg = Normal.fg.darken(30), bold = false },
+        sym"@string.special.symbol.elixir" { fg = colors.mid_yellow },
     }
 end)
 
