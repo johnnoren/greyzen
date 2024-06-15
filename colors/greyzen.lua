@@ -22,17 +22,25 @@ require('lualine').setup { options = { theme = 'greyzen' } }
 
 -- Toggle line number color between normal and bg (for making them invisible)
 vim.api.nvim_create_user_command('ToggleLineNrColor', function()
-        local theme_colors = require('lush_theme.greyzen')
-        local current_ln_fg = vim.api.nvim_get_hl_by_name('LineNr', true).fg
-        if current_ln_fg == tostring(theme_colors.LineNr.fg) then
-            vim.api.nvim_set_hl(0, 'LineNr', { fg = tostring(theme_colors.Normal.bg) })
-            vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = tostring(theme_colors.Normal.bg) })
-            vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = tostring(theme_colors.Normal.bg) })
-        else
-            vim.api.nvim_set_hl(0, 'LineNr', { fg = tostring(theme_colors.LineNr.fg) })
-            vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = tostring(theme_colors.LineNrAbove.fg) })
-            vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = tostring(theme_colors.LineNrBelow.fg) })
+        local lush = require('lush')
+        local theme = require('lush_theme.greyzen')
+        local hex = function(n)
+            return string.format("#%06x", n)
         end
+        local current_ln_fg = hex(vim.api.nvim_get_hl_by_name('LineNr', true).foreground)
+        local spec = {}
+        if current_ln_fg == tostring(theme.LineNr.fg) then
+            spec = lush.extends({ harbour }).with(function()
+                return {
+                    LineNr { fg = theme.Normal.bg },
+                    LineNrAbove { fg = theme.Normal.bg },
+                    LineNrBelow { fg = theme.Normal.bg },
+                }
+            end)
+        else
+            spec = theme
+        end
+        lush(spec)
     end,
     { nargs = 0, desc = 'Toggle line number color' }
 )
