@@ -22,6 +22,22 @@ local theme = require('lush_theme.greyzen')
 lush(theme)
 require('lualine').setup { options = { theme = 'greyzen' } }
 
+-- Markdown checkboxes
+-- Define a custom highlight group for checkboxes
+vim.cmd [[
+  highlight CheckboxChecked ctermfg=2 guifg=#00ff00
+  highlight CheckboxUnchecked ctermfg=1 guifg=#ff0000
+]]
+-- Autocommand to highlight checkboxes in Markdown files
+vim.cmd [[
+  augroup MarkdownCheckboxes
+    autocmd!
+    autocmd FileType markdown call matchadd('CheckboxChecked', '\v\[[xX]\]')
+    autocmd FileType markdown call matchadd('CheckboxUnchecked', '\v\[\s\]')
+  augroup END
+]]
+
+
 -- Toggle line number color between normal and bg (for making them invisible)
 local toggled = false
 vim.api.nvim_create_user_command('ToggleLineNrColor', function()
