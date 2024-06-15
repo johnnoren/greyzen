@@ -26,7 +26,7 @@ require('lualine').setup { options = { theme = 'greyzen' } }
 local toggled = false
 vim.api.nvim_create_user_command('ToggleLineNrColor', function()
         local spec = {}
-        if (toggled) then
+        if (not toggled) then
             spec = lush.extends({ theme }).with(function()
                 return {
                     LineNr { fg = theme.Normal.bg },
