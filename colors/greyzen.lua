@@ -54,8 +54,8 @@ vim.api.nvim_create_user_command('ToggleLineNrColor', function()
             toggled = false
         end
         lush(spec)
-        add_hl_groups()
         require('lualine').setup { options = { theme = 'greyzen' } }
+        add_hl_groups()
     end,
     { nargs = 0, desc = 'Toggle line number color' }
 )
