@@ -22,23 +22,13 @@ local theme = require('lush_theme.greyzen')
 lush(theme)
 require('lualine').setup { options = { theme = 'greyzen' } }
 
--- Markdown unchecked checkbox coloring
-vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "markdown" },
-    callback = function()
-        local match_unchecked_checkbox = [[match @markup.heading.2.markdown /\[ \]/]]
-        vim.cmd(match_unchecked_checkbox)
-    end
-})
-
--- Markdown checked checkbox coloring
-vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "markdown" },
-    callback = function()
-        local match_checked_checkbox = [[match @markup.heading.1.markdown /\[[xX]\]/]]
-        vim.cmd(match_checked_checkbox)
-    end
-})
+-- Markdown checkboxes coloring
+vim.cmd 'hi link CheckboxUnchecked @markup.heading.2.markdown'
+vim.w.m1 = vim.fn.matchadd("CheckboxUnchecked", [[\[ \] ]])
+vim.cmd 'hi link CheckboxChecked @markup.heading.1.markdown'
+vim.w.m1 = vim.fn.matchadd("CheckboxChecked", [[\[[xX]\] ]])
+--        local match_unchecked_checkbox = [[match @markup.heading.2.markdown /\[ \]/]]
+--        local match_checked_checkbox = [[match @markup.heading.1.markdown /\[[xX]\]/]]
 
 -- Toggle line number color between normal and bg (for making them invisible)
 local toggled = false
