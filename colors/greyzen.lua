@@ -23,11 +23,11 @@ lush(theme)
 require('lualine').setup { options = { theme = 'greyzen' } }
 
 -- Markdown checkbox coloring
-local match_unchecked_checkbox = [[match @markup.heading.2.markdown /\[\s\]/]]
-local match_checked_checkbox = [[match @markup.heading.1.markdown /\[[xX]\]/]]
 vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = { "markdown" },
     callback = function()
+        local match_unchecked_checkbox = [[match @markup.heading.2.markdown /\[\s\]/]]
+        local match_checked_checkbox = [[match @markup.heading.1.markdown /\[[xX]\]/]]
         vim.cmd(match_unchecked_checkbox)
         vim.cmd(match_checked_checkbox)
     end
