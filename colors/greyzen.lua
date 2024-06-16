@@ -21,6 +21,7 @@ local add_hl_groups = function()
     -- Markdown checkboxes coloring
     vim.cmd 'hi link CheckboxUnchecked @markup.heading.2.markdown'
     vim.cmd 'hi link CheckboxChecked Comment'
+    vim.cmd 'hi link Important Error'
 end
 
 local match_hl_groups = function()
@@ -29,10 +30,12 @@ local match_hl_groups = function()
     vim.fn.matchadd("CheckboxUnchecked", unchecked_pattern)
     local checked_pattern = [[^\s*\[[xX]\] .*$]]
     vim.fn.matchadd("CheckboxChecked", checked_pattern)
+    local important_pattern = [[IMPORTANT:]]
+    vim.fn.matchadd("Important", important_pattern)
 end
 
 -- Apply matching rules when window is opened
-vim.api.nvim_create_autocmd({'WinEnter', 'BufEnter'}, {pattern = {'*'}, callback = match_hl_groups})
+vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, { pattern = { '*' }, callback = match_hl_groups })
 
 -- include our theme file and pass it to lush to apply
 local lush = require('lush')
