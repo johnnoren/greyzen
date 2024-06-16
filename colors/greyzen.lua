@@ -17,19 +17,15 @@ vim.g.colors_name = 'greyzen'
 package.loaded['lush_theme.greyzen'] = nil
 
 -- Custom highlight groups
-Testy = nil
 local add_hl_groups = function()
     -- Markdown checkboxes coloring
     vim.cmd 'hi link CheckboxUnchecked @markup.heading.2.markdown'
     local unchecked_pattern = [[\[[ \t]\] ]]
-    Testy = vim.fn.matchadd("CheckboxUnchecked", unchecked_pattern)
+    vim.fn.matchadd("CheckboxUnchecked", unchecked_pattern)
     vim.cmd 'hi link CheckboxChecked @markup.heading.1.markdown'
     local checked_pattern = [[\[[xX]\] ]]
     vim.fn.matchadd("CheckboxChecked", checked_pattern)
 end
-
-    -- local unchecked_pattern = [[\[[ \t]\] ]]
-    -- vim.fn.matchadd("CheckboxUnchecked", [[\[[ \t]\] ]])
 
 
 -- include our theme file and pass it to lush to apply
