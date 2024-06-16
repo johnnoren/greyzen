@@ -27,9 +27,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = { "markdown" },
     callback = function()
         local match_unchecked_checkbox = [[match @markup.heading.2.markdown /\[ \]/]]
-        local match_checked_checkbox = [[match @markup.heading.1.markdown /\[[xX]\]/]]
+       -- local match_checked_checkbox = [[match @markup.heading.1.markdown /\[[xX]\]/]]
         vim.cmd(match_unchecked_checkbox)
-        vim.cmd(match_checked_checkbox)
+       -- vim.cmd(match_checked_checkbox)
     end
 })
 
