@@ -16,19 +16,22 @@ vim.g.colors_name = 'greyzen'
 -- *nanoseconds* and such could be considered "production safe".
 package.loaded['lush_theme.greyzen'] = nil
 
+-- Custom highlight groups
+local add_hl_groups = function()
+    -- Markdown checkboxes coloring
+    vim.cmd 'hi link CheckboxUnchecked @markup.heading.2.markdown'
+    vim.w.m1 = vim.fn.matchadd("CheckboxUnchecked", [[\[ \] ]])
+    vim.cmd 'hi link CheckboxChecked @markup.heading.1.markdown'
+    vim.w.m1 = vim.fn.matchadd("CheckboxChecked", [[\[[xX]\] ]])
+end
+
 -- include our theme file and pass it to lush to apply
 local lush = require('lush')
 local theme = require('lush_theme.greyzen')
 lush(theme)
 require('lualine').setup { options = { theme = 'greyzen' } }
+add_hl_groups()
 
--- Markdown checkboxes coloring
-vim.cmd 'hi link CheckboxUnchecked @markup.heading.2.markdown'
-vim.w.m1 = vim.fn.matchadd("CheckboxUnchecked", [[\[ \] ]])
-vim.cmd 'hi link CheckboxChecked @markup.heading.1.markdown'
-vim.w.m1 = vim.fn.matchadd("CheckboxChecked", [[\[[xX]\] ]])
---        local match_unchecked_checkbox = [[match @markup.heading.2.markdown /\[ \]/]]
---        local match_checked_checkbox = [[match @markup.heading.1.markdown /\[[xX]\]/]]
 
 -- Toggle line number color between normal and bg (for making them invisible)
 local toggled = false
@@ -48,6 +51,7 @@ vim.api.nvim_create_user_command('ToggleLineNrColor', function()
             toggled = false
         end
         lush(spec)
+        add_hl_groups()
         require('lualine').setup { options = { theme = 'greyzen' } }
     end,
     { nargs = 0, desc = 'Toggle line number color' }
