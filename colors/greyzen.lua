@@ -20,7 +20,7 @@ package.loaded['lush_theme.greyzen'] = nil
 local add_hl_groups = function()
     -- Markdown checkboxes coloring
     vim.cmd 'hi link CheckboxUnchecked @markup.heading.2.markdown'
-    vim.cmd 'hi link CheckboxChecked @markup.heading.2.markdown'
+    vim.cmd 'hi link CheckboxChecked Comment'
 end
 
 local match_hl_groups = function()
