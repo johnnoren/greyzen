@@ -37,6 +37,7 @@ vim.cmd [[
   augroup END
 ]]
 
+vim.fn.matchadd("Comment", "TEST")
 
 -- Toggle line number color between normal and bg (for making them invisible)
 local toggled = false
