@@ -30,7 +30,7 @@ local match_hl_groups = function()
     vim.fn.matchadd("CheckboxUnchecked", unchecked_pattern)
     local checked_pattern = [[^\s*\[[xX]\] .*$]]
     vim.fn.matchadd("CheckboxChecked", checked_pattern)
-    local important_pattern = [[IMPORTANT:]]
+    local important_pattern = [[IMPORTANT]]
     vim.fn.matchadd("Important", important_pattern)
 end
 
