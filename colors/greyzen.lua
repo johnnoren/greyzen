@@ -32,7 +32,7 @@ local match_hl_groups = function()
 end
 
 -- Apply matching rules when window is opened
-vim.api.nvim_create_autocmd({'WinEnter', 'BufEnter'}, {pattern = '*', command = 'lua match_hl_groups()'})
+vim.api.nvim_create_autocmd({'WinEnter', 'BufEnter'}, {pattern = '*', callback = match_hl_groups()})
 
 -- include our theme file and pass it to lush to apply
 local lush = require('lush')
