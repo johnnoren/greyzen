@@ -16,17 +16,23 @@ vim.g.colors_name = 'greyzen'
 -- *nanoseconds* and such could be considered "production safe".
 package.loaded['lush_theme.greyzen'] = nil
 
--- Custom highlight groups
+-- Add custom highlight groups
 local add_hl_groups = function()
     -- Markdown checkboxes coloring
     vim.cmd 'hi link CheckboxUnchecked @markup.heading.2.markdown'
+    vim.cmd 'hi link CheckboxChecked @markup.heading.1.markdown'
+end
+
+local match_hl_groups = function()
+    -- Markdown checkboxes coloring
     local unchecked_pattern = [[\[[ \t]\] ]]
     vim.fn.matchadd("CheckboxUnchecked", unchecked_pattern)
-    vim.cmd 'hi link CheckboxChecked @markup.heading.1.markdown'
     local checked_pattern = [[\[[xX]\] ]]
     vim.fn.matchadd("CheckboxChecked", checked_pattern)
 end
 
+-- Apply matching rules when window is opened
+vim.cmd('autocmd WinEnter * lua match_hl_groups()')
 
 -- include our theme file and pass it to lush to apply
 local lush = require('lush')
