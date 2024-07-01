@@ -23,6 +23,7 @@ local add_hl_groups = function()
     vim.cmd 'hi link CheckboxChecked Comment'
     vim.cmd 'hi link Important Error'
     vim.cmd 'hi link TODO Todo'
+    vim.cmd 'hi link OLD TabLineFill'
 end
 
 local match_hl_groups = function()
@@ -35,6 +36,9 @@ local match_hl_groups = function()
     vim.fn.matchadd("Important", important_pattern)
     local todo_pattern = [[TODO]]
     vim.fn.matchadd("TODO", todo_pattern)
+    local old_pattern = [[^OLD]]
+    vim.fn.matchadd("OLD", old_pattern)
+
 end
 
 -- Apply matching rules when window is opened
