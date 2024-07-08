@@ -75,7 +75,7 @@ local theme = lush(function(injected_functions)
         -- Folded         { }, -- Line used for closed folds
         -- FoldColumn     { }, -- 'foldcolumn'
         SignColumn {},  -- Column where |signs| are displayed
-        -- IncSearch      { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+        IncSearch      { bg = Normal.bg.lighten(61), fg = CursorLine.bg.lighten(10) }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
         Substitute     { bg = Normal.bg.lighten(40), fg = Normal.fg }, -- |:substitute| replacement text highlighting
         LineNr { fg = Normal.fg.darken(50) },     -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
         LineNrAbove    { LineNr }, -- Line number for when the 'relativenumber' option is set, above the cursor line
@@ -117,7 +117,7 @@ local theme = lush(function(injected_functions)
         -- TabLineSel     { }, -- Tab pages line, active tab page label
         -- Title          { }, -- Titles for output from ":set all", ":autocmd" etc.
         Visual         { bg = Normal.bg.lighten(25), fg = Normal.bg.lighten(60) }, -- Visual mode selection
-        -- Visual         { Cursor }, -- Visual mode selection
+        -- Visual         { IncSearch }, -- Visual mode selection
         -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
         -- WarningMsg     { }, -- Warning messages
         -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
