@@ -94,14 +94,14 @@ local theme = lush(function(injected_functions)
         -- FloatBorder    { }, -- Border of floating windows.
         -- FloatTitle     { }, -- Title of floating windows.
         -- NormalNC       { }, -- normal text in non-current windows
-        Pmenu { bg = CursorLine.bg },      -- Popup menu: Normal item.
-        -- PmenuSel       { }, -- Popup menu: Selected item.
+        Pmenu { bg = CursorLine.bg.lighten(10), fg = CursorLine.bg.lighten(60) },      -- Popup menu: Normal item.
+        PmenuSel       { bg = Pmenu.bg.lighten(10) }, -- Popup menu: Selected item.
         -- PmenuKind      { }, -- Popup menu: Normal item "kind"
         -- PmenuKindSel   { }, -- Popup menu: Selected item "kind"
         -- PmenuExtra     { }, -- Popup menu: Normal item "extra text"
         -- PmenuExtraSel  { }, -- Popup menu: Selected item "extra text"
-        -- PmenuSbar      { }, -- Popup menu: Scrollbar.
-        -- PmenuThumb     { }, -- Popup menu: Thumb of the scrollbar.
+        PmenuSbar      { bg = Pmenu.bg }, -- Popup menu: Scrollbar.
+        PmenuThumb     { bg = Pmenu.fg }, -- Popup menu: Thumb of the scrollbar.
         -- Question       { }, -- |hit-enter| prompt and yes/no questions
         QuickFixLine   { Substitute }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
         Search         { Substitute }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
