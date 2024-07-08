@@ -56,8 +56,8 @@ local theme = lush(function(injected_functions)
         --
         ColorColumn { bg = Normal.bg.lighten(2) }, -- Columns set with 'colorcolumn'
         -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-        -- Cursor         { }, -- Character under the cursor
-        CurSearch      { bg = Normal.bg.lighten(80), fg = Normal.fg.darken(50) }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
+        Cursor         { bg = Normal.fg, fg = Normal.bg }, -- Character under the cursor
+        CurSearch      { Cursor }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
         -- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
         -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
         -- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -110,13 +110,14 @@ local theme = lush(function(injected_functions)
         -- SpellCap       { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
         -- SpellLocal     { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
         -- SpellRare      { }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
-        StatusLine { bg = Normal.bg.lighten(20) }, -- Status line of current window
+        StatusLine { Normal }, -- Status line of current window
         -- StatusLineNC   { }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
         -- TabLine        { }, -- Tab pages line, not active tab page label
         TabLineFill    { bg = Normal.bg.lighten(25), fg = Normal.bg }, -- Tab pages line, where there are no labels
         -- TabLineSel     { }, -- Tab pages line, active tab page label
         -- Title          { }, -- Titles for output from ":set all", ":autocmd" etc.
-        -- Visual         { }, -- Visual mode selection
+        Visual         { bg = Normal.bg.lighten(25), fg = Normal.bg.lighten(60) }, -- Visual mode selection
+        -- Visual         { Cursor }, -- Visual mode selection
         -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
         -- WarningMsg     { }, -- Warning messages
         -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
