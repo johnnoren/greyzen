@@ -94,8 +94,9 @@ local theme = lush(function(injected_functions)
         FloatBorder    { bg = CursorLine.bg.lighten(10), fg = CursorLine.bg.lighten(60) }, -- Border of floating windows.
         -- FloatTitle     { }, -- Title of floating windows.
         -- NormalNC       { }, -- normal text in non-current windows
-        Pmenu { bg = CursorLine.bg.lighten(10), fg = CursorLine.bg.lighten(60) },      -- Popup menu: Normal item.
-        PmenuSel       { bg = Pmenu.bg.lighten(10) }, -- Popup menu: Selected item.
+        -- Pmenu { bg = CursorLine.bg.lighten(10), fg = CursorLine.bg.lighten(60) },      -- Popup menu: Normal item.
+        Pmenu { bg = CursorLine.bg.lighten(05), fg = CursorLine.bg.lighten(60) },      -- Popup menu: Normal item.
+        PmenuSel       { bg = Pmenu.bg.lighten(20) }, -- Popup menu: Selected item.
         -- PmenuKind      { }, -- Popup menu: Normal item "kind"
         -- PmenuKindSel   { }, -- Popup menu: Selected item "kind"
         -- PmenuExtra     { }, -- Popup menu: Normal item "extra text"
