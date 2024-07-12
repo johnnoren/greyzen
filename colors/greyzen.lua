@@ -44,7 +44,7 @@ end
 -- Apply matching rules when window is opened
 vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter', 'BufReadPost', 'BufWinEnter' }, { pattern = { '*' }, callback = match_hl_groups })
 
--- include our theme file and pass it to lush to apply
+-- Include our theme file and pass it to lush to apply
 local lush = require('lush')
 local theme = require('lush_theme.greyzen')
 lush(theme)
@@ -52,7 +52,7 @@ require('lualine').setup { options = { theme = 'greyzen' } }
 add_hl_groups()
 
 
--- Toggle line number color between normal and bg (for making them invisible)
+-- Toggle line number and color column color between normal and bg (for making them invisible)
 local toggled = false
 vim.api.nvim_create_user_command('ToggleLineNrColor', function()
         local spec = {}
@@ -62,6 +62,7 @@ vim.api.nvim_create_user_command('ToggleLineNrColor', function()
                     LineNr { fg = theme.Normal.bg },
                     LineNrAbove { fg = theme.Normal.bg },
                     LineNrBelow { fg = theme.Normal.bg },
+                    ColorColumn { fg = theme.Normal.bg },
                 }
             end)
             toggled = true
