@@ -23,7 +23,7 @@ local add_hl_groups = function()
     vim.cmd 'hi link CheckboxChecked Comment'
     vim.cmd 'hi link Important Error'
     vim.cmd 'hi link TODO Todo'
-    vim.cmd 'hi link TEMP TabLineFill'
+    vim.cmd 'hi link TEMP Todo'
 end
 
 local match_hl_groups = function()
