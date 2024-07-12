@@ -95,8 +95,9 @@ local theme = lush(function(injected_functions)
         -- FloatTitle     { }, -- Title of floating windows.
         -- NormalNC       { }, -- normal text in non-current windows
         -- Pmenu { bg = CursorLine.bg.lighten(10), fg = CursorLine.bg.lighten(60) },      -- Popup menu: Normal item.
-        Pmenu { bg = CursorLine.bg.lighten(05), fg = CursorLine.bg.lighten(60) },      -- Popup menu: Normal item.
-        PmenuSel       { bg = Pmenu.bg.lighten(20) }, -- Popup menu: Selected item.
+        -- Pmenu { bg = CursorLine.bg.lighten(05), fg = CursorLine.bg.lighten(60) },      -- Popup menu: Normal item.
+        Pmenu { bg = Normal.bg.lighten(15).desaturate(30), fg = Normal.fg },      -- Popup menu: Normal item.
+        PmenuSel       { bg = Pmenu.bg.lighten(15).desaturate(10), fg = Pmenu.fg.lighten(20) }, -- Popup menu: Selected item.
         -- PmenuKind      { }, -- Popup menu: Normal item "kind"
         -- PmenuKindSel   { }, -- Popup menu: Selected item "kind"
         -- PmenuExtra     { }, -- Popup menu: Normal item "extra text"
@@ -117,7 +118,8 @@ local theme = lush(function(injected_functions)
         TabLineFill    { bg = Normal.bg.lighten(25), fg = Normal.bg }, -- Tab pages line, where there are no labels
         -- TabLineSel     { }, -- Tab pages line, active tab page label
         -- Title          { }, -- Titles for output from ":set all", ":autocmd" etc.
-        Visual         { bg = Normal.bg.lighten(25), fg = Normal.bg.lighten(60) }, -- Visual mode selection
+        -- Visual         { bg = Normal.bg.lighten(25), fg = Normal.bg.lighten(60) }, -- Visual mode selection
+        Visual         { bg = Normal.bg.lighten(20).desaturate(25), fg = Normal.bg.lighten(55).desaturate(25)}, -- Visual mode selection
         -- Visual         { IncSearch }, -- Visual mode selection
         -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
         -- WarningMsg     { }, -- Warning messages
