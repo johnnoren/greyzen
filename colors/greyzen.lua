@@ -52,7 +52,7 @@ require('lualine').setup { options = { theme = 'greyzen' } }
 add_hl_groups()
 
 
--- Toggle line number and color column and cursor line color between normal and bg (for making them invisible)
+-- Toggle line number and color column color between normal and bg (for making them invisible)
 local toggled = false
 vim.api.nvim_create_user_command('ToggleLineNrColor', function()
         local spec = {}
@@ -63,7 +63,6 @@ vim.api.nvim_create_user_command('ToggleLineNrColor', function()
                     LineNrAbove { fg = theme.Normal.bg },
                     LineNrBelow { fg = theme.Normal.bg },
                     ColorColumn { fg = theme.Normal.bg },
-                    CursorLine { fg = theme.Normal.bg },
                 }
             end)
             toggled = true
