@@ -65,9 +65,11 @@ vim.api.nvim_create_user_command('ToggleLineNrColor', function()
                     ColorColumn { fg = theme.Normal.bg },
                 }
             end)
+            vim.cmd('set cursorline')
             toggled = true
         else
             spec = theme
+            vim.cmd('set nocursorline')
             toggled = false
         end
         lush(spec)
