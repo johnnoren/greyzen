@@ -119,7 +119,7 @@ local theme = lush(function(injected_functions)
         -- TabLineSel     { }, -- Tab pages line, active tab page label
         -- Title          { }, -- Titles for output from ":set all", ":autocmd" etc.
         -- Visual         { bg = Normal.bg.lighten(25), fg = Normal.bg.lighten(60) }, -- Visual mode selection
-        Visual         { bg = Normal.bg.lighten(20).desaturate(25), fg = Normal.bg.lighten(55).desaturate(25)}, -- Visual mode selection
+        Visual         { bg = Normal.bg.lighten(20).desaturate(35), fg = Normal.bg.lighten(55).desaturate(35)}, -- Visual mode selection
         -- Visual         { IncSearch }, -- Visual mode selection
         -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
         -- WarningMsg     { }, -- Warning messages
