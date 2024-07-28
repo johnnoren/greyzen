@@ -24,6 +24,7 @@ local add_hl_groups = function()
     vim.cmd 'hi link Important Error'
     vim.cmd 'hi link TODO Todo'
     vim.cmd 'hi link TEMP Cursor'
+    vim.cmd 'hi link Strikethrough Comment'
 end
 
 local match_hl_groups = function()
@@ -38,6 +39,8 @@ local match_hl_groups = function()
     vim.fn.matchadd("TODO", todo_pattern)
     local temp_pattern = [[^TEMP]]
     vim.fn.matchadd("TEMP", temp_pattern)
+    local strikethrough_pattern = [[<C-V>u0336<CR>]]
+    vim.fn.matchadd("Strikethrough", strikethrough_pattern)
 
 end
 
