@@ -25,23 +25,29 @@ local add_hl_groups = function()
     vim.cmd 'hi link TODO Todo'
     vim.cmd 'hi link TEMP Cursor'
     vim.cmd 'hi link Strikethrough Comment'
+
+    -- Define the highlight group for the colored line
+    vim.cmd([[highlight ColoredLine term=bold cterm=bold gui=bold]])
+    vim.cmd 'hi link ColoredLine Comment'
 end
 
 local match_hl_groups = function()
-    -- Markdown checkboxes coloring
     local unchecked_pattern = [[^\s*\[[ \t]\] ]]
     vim.fn.matchadd("CheckboxUnchecked", unchecked_pattern)
     local checked_pattern = [[^\s*\[[xX]\] .*$]]
     vim.fn.matchadd("CheckboxChecked", checked_pattern)
+
     local important_pattern = [[IMPORTANT]]
     vim.fn.matchadd("Important", important_pattern)
+
     local todo_pattern = [[TODO]]
     vim.fn.matchadd("TODO", todo_pattern)
+
     local temp_pattern = [[^TEMP]]
     vim.fn.matchadd("TEMP", temp_pattern)
+
     local strikethrough_pattern = ".\u{0336}"
     vim.fn.matchadd("Strikethrough", strikethrough_pattern)
-
 end
 
 -- Apply matching rules when window is opened
