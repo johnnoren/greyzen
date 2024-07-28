@@ -25,9 +25,6 @@ local add_hl_groups = function()
     vim.cmd 'hi link TODO Todo'
     vim.cmd 'hi link TEMP Cursor'
     vim.cmd 'hi link Strikethrough Comment'
-
-    -- Define the highlight group for the colored line
-    vim.cmd([[highlight ColoredLine term=bold cterm=bold gui=bold]])
     vim.cmd 'hi link ColoredLine Comment'
 end
 
@@ -48,6 +45,8 @@ local match_hl_groups = function()
 
     local strikethrough_pattern = ".\u{0336}"
     vim.fn.matchadd("Strikethrough", strikethrough_pattern)
+
+    vim.cmd([[highlight ColoredLine term=bold cterm=bold gui=bold]])
 end
 
 -- Apply matching rules when window is opened
