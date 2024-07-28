@@ -39,7 +39,7 @@ local match_hl_groups = function()
     vim.fn.matchadd("TODO", todo_pattern)
     local temp_pattern = [[^TEMP]]
     vim.fn.matchadd("TEMP", temp_pattern)
-    local strikethrough_pattern = [[\%u0336]]
+    local strikethrough_pattern = ".\u{0336}"
     vim.fn.matchadd("Strikethrough", strikethrough_pattern)
 
 end
