@@ -25,7 +25,8 @@ local add_hl_groups = function()
     vim.cmd 'hi link TODO Todo'
     vim.cmd 'hi link TEMP Cursor'
     vim.cmd 'hi link Strikethrough Comment'
-    vim.cmd 'hi link ColoredLine Ignore'
+    vim.cmd 'hi link netrwClassify EndOfBuffer' -- netrw directories trailing slashes
+--    vim.cmd 'hi link ColoredLine Ignore'
 end
 
 local match_hl_groups = function()
@@ -43,8 +44,8 @@ local match_hl_groups = function()
     local temp_pattern = [[^TEMP]]
     vim.fn.matchadd("TEMP", temp_pattern)
 
-    local strikethrough_pattern = ".\u{0336}"
-    vim.fn.matchadd("Strikethrough", strikethrough_pattern)
+ --   local strikethrough_pattern = ".\u{0336}"
+ --   vim.fn.matchadd("Strikethrough", strikethrough_pattern)
 end
 
 -- Apply matching rules when window is opened
